@@ -30,9 +30,11 @@ module FavStar
     module InstanceMethods
 
       def faves
-        Fave.where(:faveable_id => id, :faveable_type => self.class.name).count
+        Fave.where(:faveable_id => id, :faveable_type => self.class.name)
       end
-
+      def faves_count
+        faves_count
+      end
       def favers
         self.faves.map(&:faver).uniq
       end
